@@ -1,5 +1,6 @@
 package com.raksa.androidfragmenttransaction;
 
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,18 +18,20 @@ public class MainActivity extends AppCompatActivity {
         Button buttonAddB = (Button) findViewById(R.id.buttonAdd2);
         Button buttonRemB = (Button) findViewById(R.id.buttonRem2);
 
+        final FragmentManager fragmentManager = getSupportFragmentManager();
+        final FragmentA fragmentA = new FragmentA();
+        final FragmentB fragmentB = new FragmentB();
 
         buttonAddA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                fragmentManager.beginTransaction().add(R.id.containerA,fragmentA).commit();
             }
         });
 
         buttonRemA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
             }
         });
 
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         buttonAddB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                fragmentManager.beginTransaction().add(R.id.containerB,fragmentB).commit();
             }
         });
 
