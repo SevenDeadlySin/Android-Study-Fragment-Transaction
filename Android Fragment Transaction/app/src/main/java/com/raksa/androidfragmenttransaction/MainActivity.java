@@ -43,9 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 if (isFragmentExist!=null) {
                     fragmentManager.beginTransaction().remove(fragmentA).commit();
                 }
-                else {
-
-                }
+                else {}
             }
         });
 
