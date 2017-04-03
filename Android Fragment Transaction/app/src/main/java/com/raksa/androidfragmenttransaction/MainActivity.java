@@ -25,13 +25,27 @@ public class MainActivity extends AppCompatActivity {
         buttonAddA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmentManager.beginTransaction().add(R.id.containerA,fragmentA).commit();
+
+                FragmentA isFragmentExist = (FragmentA) fragmentManager.findFragmentById(R.id.containerA);
+                if (isFragmentExist==null){
+                    fragmentManager.beginTransaction().add(R.id.containerA,fragmentA).commit();
+                }
+                else {
+                }
             }
         });
 
         buttonRemA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                FragmentA isFragmentExist = (FragmentA) fragmentManager.findFragmentById(R.id.containerA);
+                if (isFragmentExist!=null) {
+                    fragmentManager.beginTransaction().remove(fragmentA).commit();
+                }
+                else {
+
+                }
             }
         });
 
@@ -39,13 +53,22 @@ public class MainActivity extends AppCompatActivity {
         buttonAddB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmentManager.beginTransaction().add(R.id.containerB,fragmentB).commit();
+
+                FragmentB isFragmentExist = (FragmentB) fragmentManager.findFragmentById(R.id.containerB);
+                if (isFragmentExist==null){
+                    fragmentManager.beginTransaction().add(R.id.containerB,fragmentB).commit();
+                }else {}
+
             }
         });
 
         buttonRemB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FragmentB isFragmentExist = (FragmentB) fragmentManager.findFragmentById(R.id.containerB);
+                if (isFragmentExist!=null){
+                    fragmentManager.beginTransaction().remove(fragmentB).commit();
+                }else {}
 
             }
         });
